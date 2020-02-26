@@ -44,5 +44,5 @@ module.exports = (params) => {
 
     }
 
-    return JSON.stringify(output);
+    return output;
 }
