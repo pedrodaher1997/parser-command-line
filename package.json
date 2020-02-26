@@ -1,0 +1,15 @@
+{
+  "name": "parser-command-line",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "author": {
+    "email": "pedroentringer97@gmail.com",
+    "name": "Pedro Entringer",
+    "url": "https://github.com/pedrodaher1997/parser-command-line.git"
+  },
+  "repository": {
+   "type": "git",
+   "url": "git+https://github.com/pedrodaher1997/parser-command-line.git" 
+  }
+}
