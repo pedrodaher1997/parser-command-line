@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = (input) => {
+export default (input:string) :string => {
     let result = "";
     const inputArray = input.split(' ');
 

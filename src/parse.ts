@@ -1,20 +1,28 @@
-const camelCase = require('./camelCase');
-const flagName = require('./flagName');
+import toCalmeCase from './camelCase'
+import toFlagName from './flagName'
 
-module.exports = (params) => {
-    const output = {
+type Flag = string | number | boolean;
+
+export interface IParsed {
+    bin: string;
+    commands: string[];
+    flags: {
+        [key: string]: Flag
+    }
+}
+
+export default (params: string[]): IParsed => {
+    const output:IParsed = {
         bin: params[0],
         commands: [],
         flags: {}
     };
 
-    for( let i = 1; i < params.length ; i++ ) {
-        const param = params[i];
-
+    for(const param of params){
         if ( param.substr(0,2) === '--' || param.substr(0,1) === '-') {
             const paramSplit = param.split('=');
             let flag = paramSplit[0];
-            let flagValue;
+            let flagValue:Flag = true
 
             if(paramSplit[1]){
                 flagValue = paramSplit[1];
@@ -28,20 +36,15 @@ module.exports = (params) => {
                 }
 
             }
-
-            if(!paramSplit[1]){
-                flagValue = true;
-            }
             
-            flag = flagName(flag)
-            flag = camelCase(flag);
+            flag = toCalmeCase(flag)
+            flag = toFlagName(flag);
 
             output.flags[flag] = flagValue;
 
         } else if ( Object.keys(output.flags).length == 0 ) {
-             output.commands.push(param);
+                output.commands.push(param);
         }
-
     }
 
     return output;

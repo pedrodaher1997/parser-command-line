@@ -5,13 +5,13 @@ A Command Line Parser for Node.js
 
 Parse args params:
 ```
-const parser = require('parser-command-line')
+const parser = require('@pedroentringer/parser-command-line')
 const params = parser.parseArgs();
 ```
 
 Parse string params:
 ```
-const parser = require('parser-command-line')
+const parser = require('@pedroentringer/parser-command-line')
 const params = parser.parseString('yarn add parser-command-line -d --version=1.0.0');
 ```
 
